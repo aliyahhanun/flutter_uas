@@ -16,6 +16,8 @@ dependencies:
   intl: ^0.16.1
   animations: ^1.0.0+5
   sqflite: ^2.2.2
+  http: ^0.13.5
+  path_provider: ^2.0.11
 
 dev_dependencies:
   flutter_test:

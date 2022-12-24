@@ -5,7 +5,10 @@ import 'package:intl/intl.dart';
 import 'package:pelatihanflutter/model/meal.dart';
 import 'package:pelatihanflutter/ui/pages/meal_detail_screen.dart';
 import 'package:pelatihanflutter/ui/pages/workout_screen.dart';
+import 'package:pelatihanflutter/ui/pages/add_meal.dart';
 import 'package:vector_math/vector_math_64.dart' as math;
+
+import 'add_meal.dart';
 
 class ProfileScreen extends StatelessWidget {
   @override
@@ -177,15 +180,14 @@ class ProfileScreen extends StatelessWidget {
                               meal: meals[i],
                             ),
                           IconButton(
-                            onPressed: () {
-                              // Navigator.push(
-                              //   context,
-                              //   MaterialPageRoute(
-                              //       builder: (context) => const _MealCard()),
-                              // );
-                            },
                             icon: Icon(Icons.my_library_add_rounded),
-                            color: Colors.white,
+                            color: Colors.blueGrey,
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => AddMeal()));
+                            },
                           ),
                         ],
                       ),
