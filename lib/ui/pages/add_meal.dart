@@ -1,9 +1,8 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
+import 'package:pelatihanflutter/dbhelper/dbhelper.dart';
 import 'package:pelatihanflutter/main.dart';
+import 'package:pelatihanflutter/model/meal.dart';
 import 'package:pelatihanflutter/ui/pages/profile_screen.dart';
-import 'package:http/http.dart' as http;
 
 class AddMeal extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
@@ -15,25 +14,23 @@ class AddMeal extends StatelessWidget {
   TextEditingController _ingredientsController = TextEditingController();
   TextEditingController _prepareController = TextEditingController();
 
-  Future saveMeal() async {
-    final response =
-        await http.post(Uri.parse("http://127.0.0.1:8000/api/meal"), body: {
-      "meal time": _mealController.text,
-      "name": _nameController.text,
-      "kilo calories burnt": _kiloController.text,
-      "time": _timeController.text,
-      "image URL": _imageController.text,
-      "ingredients": _ingredientsController.text,
-      "preparation": _prepareController.text
-    });
-    print(response.body);
+  List<Map<String, dynamic>> meal = [];
 
-    return json.decode(response.body);
+  String data;
+  Future saveMeal() async {
+    final response = await SQLHelper.getMeal(
+        _mealController.text,
+        _nameController.text,
+        _kiloController.text,
+        _timeController.text,
+        _imageController.text,
+        _ingredientsController.text,
+        _prepareController.text);
+    print(response);
   }
 
   @override
   Widget build(BuildContext context) {
-    var data = "Save";
     return Scaffold(
       appBar: AppBar(
         title: Text("Add meal"),
