@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pelatihanflutter/navbar/home_page.dart';
+import 'package:pelatihanflutter/navbar/search_page.dart';
 import '../../model/meal.dart';
 import 'package:animations/animations.dart';
 import 'package:intl/intl.dart';
@@ -7,10 +9,11 @@ import 'package:pelatihanflutter/ui/pages/meal_detail_screen.dart';
 import 'package:pelatihanflutter/ui/pages/workout_screen.dart';
 import 'package:pelatihanflutter/ui/pages/add_meal.dart';
 import 'package:vector_math/vector_math_64.dart' as math;
-
 import 'add_meal.dart';
 
 class ProfileScreen extends StatelessWidget {
+  List Pages = [homePage(), searchPage()];
+
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;

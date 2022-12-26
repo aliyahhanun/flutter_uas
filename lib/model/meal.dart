@@ -3,8 +3,6 @@ class Meal {
   final String preparation;
   final List ingredients;
 
-  var id;
-
   Meal(
       {this.mealTime,
       this.name,
